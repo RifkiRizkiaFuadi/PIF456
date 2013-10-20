@@ -16,7 +16,7 @@
 	#content {max-width: 360px; margin: 0 auto; padding: 20px 20px 0px 20px; background: #F5F5F5; border: 1px solid #D2D2D2; border-top: none; border-bottom-right-radius: 15px}
 	.username {background: url(user.png) no-repeat 1px 5px; padding: 0 5px 0 20px}
 	.password {background: url(key.png) no-repeat 1px 5px; padding: 0 5px 0 20px}
-	.button {font-weight: bold; max-width:80px; margin: 20px 0 10px 0; padding: 10px 5px; float: right; clear: both; color: #FFF; background:#245237; background:-moz-linear-gradient(#377D54, #245237); background:-o-linear-gradient(#377D54, #245237); background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#377D54), to(#245237)); background:-webkit-linear-gradient(#377D54, #245237); border: none}
+	.button {font-weight: bold; max-width: 80px; margin: 20px 0 10px 0; padding: 10px 5px; float: right; clear: both; color: #FFF; background:#245237; background:-moz-linear-gradient(#377D54, #245237); background:-o-linear-gradient(#377D54, #245237); background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#377D54), to(#245237)); background:-webkit-linear-gradient(#377D54, #245237); border: none}
 	.button:hover {background:#222; background:-moz-linear-gradient(#252525, #0a0a0a); background:-o-linear-gradient(#252525, #0a0a0a); background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#0a0a0a)); background:-webkit-linear-gradient(#252525, #0a0a0a); cursor: hand}
 	.copyright {font-size: 12px; clear: both;}
 	</style>
@@ -95,11 +95,13 @@
 			<table>
 				<tr>
 					<td><div class="username">Username </div></td>
-					<td><input type="text" name="username" id="username" onkeypress="return alphabetOnly(event)"></td>
+					<td><input type="text" name="username" id="username" value="<?php
+						echo isset($_POST['username']) ? $_POST['username'] : '';
+					?>" onkeypress="return alphabetOnly(event)"></td>
 				</tr>
 				<tr>
 					<td><div class="password">Password </div></td>
-					<td><input type="text" name="password" id="password" onkeypress="return alphabetOnly(event)"></td>
+					<td><input type="password" name="password" id="password" onkeypress="return alphabetOnly(event)"></td>
 				</tr>
 			</table>
 			<input class="button" type="submit" value="LOGIN" />
